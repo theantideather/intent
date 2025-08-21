@@ -4,7 +4,7 @@ import './App.css';
 
 function App() {
   const [activeModal, setActiveModal] = useState(null);
-  const [showFeatures, setShowFeatures] = useState(false);
+  const [showMenu, setShowMenu] = useState(false);
   const [currentFeatureIndex, setCurrentFeatureIndex] = useState(0);
 
   const features = [
@@ -28,45 +28,66 @@ function App() {
 
   const openModal = (modalType) => {
     setActiveModal(modalType);
+    setShowMenu(false);
   };
 
   const closeModal = () => {
     setActiveModal(null);
   };
 
-  const toggleFeatures = () => {
-    setShowFeatures(!showFeatures);
-    setCurrentFeatureIndex(0);
+  const toggleMenu = () => {
+    setShowMenu(!showMenu);
   };
 
   useEffect(() => {
-    if (showFeatures) {
-      const interval = setInterval(() => {
-        setCurrentFeatureIndex((prevIndex) => {
-          if (prevIndex >= features.length - 1) {
-            return 0;
-          }
-          return prevIndex + 1;
-        });
-      }, 2000); // Change feature every 2 seconds
+    const interval = setInterval(() => {
+      setCurrentFeatureIndex((prevIndex) => {
+        if (prevIndex >= features.length - 1) {
+          return 0;
+        }
+        return prevIndex + 1;
+      });
+    }, 3000); // Change feature every 3 seconds
 
-      return () => clearInterval(interval);
-    }
-  }, [showFeatures, features.length]);
+    return () => clearInterval(interval);
+  }, [features.length]);
 
   return (
     <div className="App">
-      <div className="floating-buttons">
+      {/* Desktop Navigation */}
+      <div className="floating-buttons desktop-only">
         <button className="floating-button" onClick={() => openModal('why')}>
           Why We Created Intent
         </button>
         <button className="floating-button" onClick={() => openModal('note')}>
           Note from the Creator
         </button>
-        <button className="floating-button" onClick={toggleFeatures}>
-          Features
+        <button className="floating-button features-button">
+          {features[currentFeatureIndex]}
         </button>
       </div>
+
+      {/* Mobile Menu Button */}
+      <div className="mobile-menu-button mobile-only">
+        <button className="menu-toggle" onClick={toggleMenu}>
+          <span className={`hamburger ${showMenu ? 'active' : ''}`}></span>
+        </button>
+      </div>
+
+      {/* Mobile Menu */}
+      {showMenu && (
+        <div className="mobile-menu mobile-only">
+          <button className="mobile-menu-item" onClick={() => openModal('why')}>
+            Why We Created Intent
+          </button>
+          <button className="mobile-menu-item" onClick={() => openModal('note')}>
+            Note from the Creator
+          </button>
+          <div className="mobile-feature-display">
+            {features[currentFeatureIndex]}
+          </div>
+        </div>
+      )}
 
       <div className="hero-section">
         <LightRays
@@ -111,16 +132,7 @@ function App() {
         </div>
       </div>
 
-      {/* Features Display */}
-      {showFeatures && (
-        <div className="features-overlay">
-          <div className="features-container">
-            <div className="feature-text">
-              {features[currentFeatureIndex]}
-            </div>
-          </div>
-        </div>
-      )}
+
       
       {/* Modals */}
       {activeModal === 'why' && (
@@ -195,7 +207,7 @@ function App() {
 
       <footer className="footer">
         <div className="footer-content">
-          <span className="footer-text">made with light love and intent</span>
+          <span className="footer-text">crafted with light, love & intent</span>
           <a 
             href="https://x.com/backedbyintent?s=21" 
             target="_blank" 
