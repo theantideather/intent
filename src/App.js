@@ -1,9 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import LightRays from './LightRays';
 import './App.css';
 
 function App() {
   const [activeModal, setActiveModal] = useState(null);
+  const [showFeatures, setShowFeatures] = useState(false);
+  const [currentFeatureIndex, setCurrentFeatureIndex] = useState(0);
+
+  const features = [
+    "Delusions With Care",
+    "Minimal Hallucinations",
+    "Dream to Pay / Truth to Earn",
+    "Zero-Knowledge Privacy",
+    "Cryptographic Guardrails",
+    "Emotional Boundaries",
+    "Consent in Connection",
+    "Memory With Mercy",
+    "Presence Over Performance",
+    "Clarity Without Harshness",
+    "Real Emotion, Not Simulation",
+    "Safe Space Sanctuary",
+    "Wallet-Based Secure Login",
+    "Aligned Tokenomics",
+    "Dependency Detection",
+    "Gentle Reality Anchoring"
+  ];
 
   const openModal = (modalType) => {
     setActiveModal(modalType);
@@ -13,6 +34,26 @@ function App() {
     setActiveModal(null);
   };
 
+  const toggleFeatures = () => {
+    setShowFeatures(!showFeatures);
+    setCurrentFeatureIndex(0);
+  };
+
+  useEffect(() => {
+    if (showFeatures) {
+      const interval = setInterval(() => {
+        setCurrentFeatureIndex((prevIndex) => {
+          if (prevIndex >= features.length - 1) {
+            return 0;
+          }
+          return prevIndex + 1;
+        });
+      }, 2000); // Change feature every 2 seconds
+
+      return () => clearInterval(interval);
+    }
+  }, [showFeatures, features.length]);
+
   return (
     <div className="App">
       <div className="floating-buttons">
@@ -21,6 +62,9 @@ function App() {
         </button>
         <button className="floating-button" onClick={() => openModal('note')}>
           Note from the Creator
+        </button>
+        <button className="floating-button" onClick={toggleFeatures}>
+          Features
         </button>
       </div>
 
@@ -66,6 +110,17 @@ function App() {
           </div>
         </div>
       </div>
+
+      {/* Features Display */}
+      {showFeatures && (
+        <div className="features-overlay">
+          <div className="features-container">
+            <div className="feature-text">
+              {features[currentFeatureIndex]}
+            </div>
+          </div>
+        </div>
+      )}
       
       {/* Modals */}
       {activeModal === 'why' && (
