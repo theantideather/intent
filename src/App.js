@@ -1,30 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import LightRays from './LightRays';
+import FeaturesPage from './FeaturesPage';
 import './App.css';
 
 function App() {
   const [activeModal, setActiveModal] = useState(null);
   const [showMenu, setShowMenu] = useState(false);
-  const [currentFeatureIndex, setCurrentFeatureIndex] = useState(0);
-
-  const features = [
-    "Delusions With Care",
-    "Minimal Hallucinations",
-    "Dream to Pay / Truth to Earn",
-    "Zero-Knowledge Privacy",
-    "Cryptographic Guardrails",
-    "Emotional Boundaries",
-    "Consent in Connection",
-    "Memory With Mercy",
-    "Presence Over Performance",
-    "Clarity Without Harshness",
-    "Real Emotion, Not Simulation",
-    "Safe Space Sanctuary",
-    "Wallet-Based Secure Login",
-    "Aligned Tokenomics",
-    "Dependency Detection",
-    "Gentle Reality Anchoring"
-  ];
+  const [showFeaturesPage, setShowFeaturesPage] = useState(false);
 
   const openModal = (modalType) => {
     setActiveModal(modalType);
@@ -39,18 +21,14 @@ function App() {
     setShowMenu(!showMenu);
   };
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentFeatureIndex((prevIndex) => {
-        if (prevIndex >= features.length - 1) {
-          return 0;
-        }
-        return prevIndex + 1;
-      });
-    }, 3000); // Change feature every 3 seconds
+  const openFeaturesPage = () => {
+    setShowFeaturesPage(true);
+    setShowMenu(false);
+  };
 
-    return () => clearInterval(interval);
-  }, [features.length]);
+  const closeFeaturesPage = () => {
+    setShowFeaturesPage(false);
+  };
 
   return (
     <div className="App">
@@ -62,8 +40,8 @@ function App() {
         <button className="floating-button" onClick={() => openModal('note')}>
           Note from the Creator
         </button>
-        <button className="floating-button features-button">
-          {features[currentFeatureIndex]}
+        <button className="floating-button" onClick={openFeaturesPage}>
+          Features
         </button>
       </div>
 
@@ -83,9 +61,9 @@ function App() {
           <button className="mobile-menu-item" onClick={() => openModal('note')}>
             Note from the Creator
           </button>
-          <div className="mobile-feature-display">
-            {features[currentFeatureIndex]}
-          </div>
+          <button className="mobile-menu-item" onClick={openFeaturesPage}>
+            Features
+          </button>
         </div>
       )}
 
@@ -132,7 +110,10 @@ function App() {
         </div>
       </div>
 
-
+      {/* Features Page */}
+      {showFeaturesPage && (
+        <FeaturesPage onBack={closeFeaturesPage} />
+      )}
       
       {/* Modals */}
       {activeModal === 'why' && (
