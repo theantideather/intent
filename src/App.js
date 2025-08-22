@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import LightRays from './LightRays';
 import FeaturesPage from './FeaturesPage';
 import './App.css';
@@ -188,7 +188,7 @@ function App() {
 
       <footer className="footer">
         <div className="footer-content">
-          <span className="footer-text">crafted with light, love & intent</span>
+          <span className="footer-text">made with light, love and intent</span>
           <a 
             href="https://x.com/backedbyintent?s=21" 
             target="_blank" 
