@@ -22,6 +22,7 @@ function App() {
   };
 
   const openFeaturesPage = () => {
+    console.log('Opening features page');
     setShowFeaturesPage(true);
     setShowMenu(false);
   };
@@ -70,7 +71,7 @@ function App() {
       <div className="hero-section">
         <LightRays
           raysOrigin="top-center"
-          raysColor="#8b5cf6"
+          raysColor="#d4af37"
           raysSpeed={1.5}
           lightSpread={0.8}
           rayLength={1.2}
@@ -112,7 +113,10 @@ function App() {
 
       {/* Features Page */}
       {showFeaturesPage && (
-        <FeaturesPage onBack={closeFeaturesPage} />
+        <div>
+          {console.log('Rendering FeaturesPage, showFeaturesPage:', showFeaturesPage)}
+          <FeaturesPage onBack={closeFeaturesPage} />
+        </div>
       )}
       
       {/* Modals */}
