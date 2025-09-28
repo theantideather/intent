@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import LightRays from './LightRays';
 import FeaturesPage from './FeaturesPage';
+import ChatMockups from './components/ChatMockups';
 import './App.css';
 
 function App() {
   const [activeModal, setActiveModal] = useState(null);
   const [showMenu, setShowMenu] = useState(false);
   const [showFeaturesPage, setShowFeaturesPage] = useState(false);
+  const [showChatMockups, setShowChatMockups] = useState(false);
 
   const openModal = (modalType) => {
     setActiveModal(modalType);
@@ -31,6 +33,15 @@ function App() {
     setShowFeaturesPage(false);
   };
 
+  const openChatMockups = () => {
+    setShowChatMockups(true);
+    setShowMenu(false);
+  };
+
+  const closeChatMockups = () => {
+    setShowChatMockups(false);
+  };
+
   return (
     <div className="App">
       {/* Desktop Navigation */}
@@ -43,6 +54,9 @@ function App() {
         </button>
         <button className="floating-button" onClick={openFeaturesPage}>
           Features
+        </button>
+        <button className="floating-button" onClick={openChatMockups}>
+          Chat Examples
         </button>
       </div>
 
@@ -64,6 +78,9 @@ function App() {
           </button>
           <button className="mobile-menu-item" onClick={openFeaturesPage}>
             Features
+          </button>
+          <button className="mobile-menu-item" onClick={openChatMockups}>
+            Chat Examples
           </button>
         </div>
       )}
@@ -116,6 +133,13 @@ function App() {
         <div>
           {console.log('Rendering FeaturesPage, showFeaturesPage:', showFeaturesPage)}
           <FeaturesPage onBack={closeFeaturesPage} />
+        </div>
+      )}
+
+      {/* Chat Mockups */}
+      {showChatMockups && (
+        <div>
+          <ChatMockups onBack={closeChatMockups} />
         </div>
       )}
       

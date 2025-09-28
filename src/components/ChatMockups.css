@@ -1,0 +1,354 @@
+/* Chat Mockups - Visual Examples of Intent Conversations */
+
+:root {
+  /* Exact colors from golden shield reference image */
+  --intent-bright-gold: #FFFFE0;      /* Innermost bright highlight */
+  --intent-luminous-gold: #FFD700;    /* Luminous golden yellow */
+  --intent-rich-gold: #DAA520;        /* Rich amber */
+  --intent-burnt-gold: #B8860B;       /* Burnt orange-gold */
+  --intent-deep-gold: #CD853F;        /* Deep amber */
+  --intent-muted-gold: #DAA520;       /* Muted golden-yellow for accents */
+  --intent-black: #000000;            /* Solid black background */
+  --intent-cream: #FFF8DC;            /* Cream text */
+}
+
+.chat-mockups-container {
+  padding: 4rem 2rem;
+  background: var(--intent-black);
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Back Button */
+.mockups-back-button {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid var(--intent-rich-gold);
+  color: var(--intent-rich-gold);
+  padding: 12px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(218, 165, 32, 0.2);
+  z-index: 10;
+}
+
+.mockups-back-button:hover {
+  background: rgba(218, 165, 32, 0.1);
+  transform: translateX(-2px);
+  box-shadow: 0 6px 25px rgba(218, 165, 32, 0.3);
+}
+
+.mockups-header {
+  text-align: center;
+  margin-bottom: 4rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mockups-title {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 300;
+  color: var(--intent-luminous-gold);
+  margin-bottom: 1rem;
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+}
+
+.mockups-subtitle {
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  color: var(--intent-rich-gold);
+  font-weight: 300;
+  opacity: 0.8;
+  line-height: 1.6;
+}
+
+/* Chat Examples Grid */
+.chat-examples-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Individual Chat Mockup */
+.chat-mockup {
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(218, 165, 32, 0.3);
+  border-radius: 20px;
+  padding: 1.5rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(218, 165, 32, 0.1);
+  transition: all 0.3s ease;
+}
+
+.chat-mockup:hover {
+  border-color: rgba(218, 165, 32, 0.5);
+  box-shadow: 0 12px 40px rgba(218, 165, 32, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Mockup Header */
+.mockup-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(218, 165, 32, 0.2);
+}
+
+.mockup-logo {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, var(--intent-luminous-gold), var(--intent-rich-gold));
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--intent-black);
+  box-shadow: 0 2px 8px rgba(255, 215, 0, 0.3);
+}
+
+.mockup-title {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--intent-rich-gold);
+  text-shadow: 0 0 10px rgba(218, 165, 32, 0.3);
+}
+
+/* Mockup Chat Messages */
+.mockup-chat {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.mockup-message {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.mockup-message.user {
+  justify-content: flex-end;
+}
+
+.mockup-message.intent {
+  justify-content: flex-start;
+}
+
+.mockup-message-content {
+  max-width: 80%;
+  position: relative;
+}
+
+/* User Messages */
+.mockup-message.user .mockup-message-content {
+  background: linear-gradient(135deg, #2D2D2D, #1A1A1A);
+  color: var(--intent-cream);
+  border-radius: 18px 18px 4px 18px;
+  padding: 12px 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(218, 165, 32, 0.3);
+}
+
+/* Intent Messages */
+.mockup-message.intent .mockup-message-content {
+  background: linear-gradient(135deg, #1A1A1A, #0A0A0A);
+  color: var(--intent-cream);
+  border-radius: 18px 18px 18px 4px;
+  padding: 16px 20px;
+  border-left: 3px solid var(--intent-luminous-gold);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  position: relative;
+}
+
+.mockup-message.intent .mockup-message-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.05), rgba(218, 165, 32, 0.03));
+  border-radius: 18px 18px 18px 4px;
+  pointer-events: none;
+}
+
+/* Message Text */
+.mockup-message-text {
+  font-size: 15px;
+  line-height: 1.5;
+  word-wrap: break-word;
+  margin-bottom: 8px;
+}
+
+/* Choice Buttons */
+.mockup-choices {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+.mockup-choice-button {
+  background: transparent;
+  border: 1px solid var(--intent-rich-gold);
+  color: var(--intent-rich-gold);
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-size: 13px;
+  cursor: default;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  pointer-events: none;
+}
+
+.mockup-choice-button:hover {
+  background: rgba(218, 165, 32, 0.1);
+}
+
+/* Timestamps */
+.mockup-timestamp {
+  font-size: 11px;
+  color: #6B7280;
+  text-align: right;
+  margin-top: 4px;
+  opacity: 0.8;
+}
+
+/* Footer */
+.mockups-footer {
+  text-align: center;
+  margin-top: 4rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mockups-description {
+  font-size: 1.1rem;
+  color: var(--intent-rich-gold);
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+.mockups-description strong {
+  color: var(--intent-burnt-gold);
+  text-shadow: 0 0 10px rgba(184, 134, 11, 0.4);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .chat-mockups-container {
+    padding: 2rem 1rem;
+  }
+
+  .mockups-back-button {
+    top: 1rem;
+    left: 1rem;
+    padding: 10px 16px;
+    font-size: 13px;
+  }
+
+  .chat-examples-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .chat-mockup {
+    padding: 1rem;
+  }
+
+  .mockup-message-content {
+    max-width: 85%;
+  }
+
+  .mockup-message-text {
+    font-size: 14px;
+  }
+
+  .mockup-choices {
+    gap: 6px;
+  }
+
+  .mockup-choice-button {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+
+  .mockups-title {
+    font-size: 2rem;
+  }
+
+  .mockups-subtitle {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .chat-mockups-container {
+    padding: 1.5rem 0.5rem;
+  }
+
+  .mockup-header {
+    margin-bottom: 1rem;
+  }
+
+  .mockup-logo {
+    width: 28px;
+    height: 28px;
+  }
+
+  .mockup-title {
+    font-size: 1rem;
+  }
+
+  .mockup-message-content {
+    max-width: 90%;
+  }
+
+  .mockup-message-text {
+    font-size: 13px;
+  }
+}
+
+/* Animation for mockup appearance */
+.chat-mockup {
+  animation: mockupFadeIn 0.6s ease-out forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.chat-mockup:nth-child(1) { animation-delay: 0.1s; }
+.chat-mockup:nth-child(2) { animation-delay: 0.2s; }
+.chat-mockup:nth-child(3) { animation-delay: 0.3s; }
+.chat-mockup:nth-child(4) { animation-delay: 0.4s; }
+.chat-mockup:nth-child(5) { animation-delay: 0.5s; }
+.chat-mockup:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes mockupFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .chat-mockup {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
