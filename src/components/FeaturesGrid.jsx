@@ -1,5 +1,6 @@
 import React from 'react';
-import { Features } from './blocks/features-8';
+import { Features } from './ui/features-8';
+import './FeaturesGrid.css';
 
 const FeaturesGrid = () => {
   return (

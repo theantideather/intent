@@ -614,6 +614,54 @@ body::before {
   color: #d4af37;
 }
 
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.footer-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.footer-button {
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid #d4af37;
+  color: #d4af37;
+  padding: 0.5rem 1rem;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.8rem;
+  font-weight: 500;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 10px rgba(212, 175, 55, 0.3);
+  white-space: nowrap;
+}
+
+.footer-button:hover {
+  background: rgba(212, 175, 55, 0.1);
+  border-color: #b8860b;
+  color: #b8860b;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+}
+
+/* Bottom actions pinned above footer */
+.bottom-actions {
+  position: fixed;
+  bottom: 64px; /* sits above footer height */
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  z-index: 99;
+}
+
 .footer-text {
   font-style: italic;
   color: #d4af37;

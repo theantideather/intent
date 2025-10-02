@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import LightRays from './LightRays';
 import ChatMockups from './components/ChatMockups';
-import FeaturesGrid from './components/FeaturesGrid';
+// import FeaturesGrid from './components/FeaturesGrid';
+import { HeroScrollDemo } from './components/HeroScrollDemo';
 import './App.css';
 
 function App() {
@@ -24,34 +25,6 @@ function App() {
 
   return (
     <div className="App">
-      {/* Desktop Navigation */}
-      <div className="floating-buttons desktop-only">
-        <button className="floating-button" onClick={() => openModal('why')}>
-          Why We Created Intent
-        </button>
-        <button className="floating-button" onClick={() => openModal('note')}>
-          Note from the Creator
-        </button>
-      </div>
-
-      {/* Mobile Menu Button */}
-      <div className="mobile-menu-button mobile-only">
-        <button className="menu-toggle" onClick={toggleMenu}>
-          <span className={`hamburger ${showMenu ? 'active' : ''}`}></span>
-        </button>
-      </div>
-
-      {/* Mobile Menu */}
-      {showMenu && (
-        <div className="mobile-menu mobile-only">
-          <button className="mobile-menu-item" onClick={() => openModal('why')}>
-            Why We Created Intent
-          </button>
-          <button className="mobile-menu-item" onClick={() => openModal('note')}>
-            Note from the Creator
-          </button>
-        </div>
-      )}
 
       <div className="hero-section">
         <LightRays
@@ -92,14 +65,33 @@ function App() {
             >
               Join Waitlist
             </a>
+            <a
+              href="mailto:omgurram14@gmail.com?subject=Intent%20Demo%20Request&body=Hey%2C%20I%20would%20like%20to%20check%20out%20a%20demo%20for%20Intent."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="waitlist-button"
+              style={{ marginTop: '12px' }}
+            >
+              Book Demo
+            </a>
           </div>
         </div>
       </div>
 
       {/* Seamless Scroll Sections */}
       <ChatMockups />
-      <FeaturesGrid />
+      <HeroScrollDemo />
       
+      {/* Bottom actions (not footer) */}
+      <div className="bottom-actions" style={{ display: 'flex', justifyContent: 'center', gap: '12px', padding: '24px 0' }}>
+        <button className="footer-button" onClick={() => openModal('why')}>
+          Why We Created Intent
+        </button>
+        <button className="footer-button" onClick={() => openModal('note')}>
+          Note from the Creator
+        </button>
+      </div>
+
       {/* Modals */}
       {activeModal === 'why' && (
         <div className="modal-overlay" onClick={closeModal}>
