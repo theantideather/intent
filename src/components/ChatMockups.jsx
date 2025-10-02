@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import SecureReveal from './SecureReveal';
 import './ChatMockups.css';
 
 const ChatMockups = () => {
@@ -177,15 +176,6 @@ const ChatMockups = () => {
         </div>
       </div>
 
-      {/* SecureReveal Input Demo */}
-      <div className="input-demo-section">
-        <h3 className="input-demo-title">Try the SecureReveal Input</h3>
-        <p className="input-demo-subtitle">Experience Intent's secure input with vanishing placeholder effect</p>
-        <SecureReveal 
-          placeholder="Type your secure message here..."
-          onSend={(message) => console.log('Secure message sent:', message)}
-        />
-      </div>
     </div>
   );
 };
