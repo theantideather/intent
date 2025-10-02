@@ -1,0 +1,208 @@
+/* SecureReveal Input - Enhanced Secure Input with New Intent Color Palette */
+
+:root {
+  /* Intent "Delusion-As-A-Service" Color Palette */
+  --intent-deep-black: #050505;
+  --intent-gold-light: #FFE49C;
+  --intent-gold-main: #FFD44C;
+  --intent-amber: #F4B300;
+  --intent-burnt-gold: #B68A32;
+  --intent-chestnut: #735620;
+  --intent-pale-gold: #FDF6DC;
+}
+
+.secure-reveal-container {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.secure-reveal-form {
+  position: relative;
+}
+
+.secure-reveal-wrapper {
+  position: relative;
+  background: rgba(5, 5, 5, 0.9);
+  border: 2px solid rgba(182, 138, 50, 0.3);
+  border-radius: 25px;
+  padding: 12px 20px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.secure-reveal-wrapper.focused {
+  border-color: var(--intent-gold-main);
+  box-shadow: 0 0 0 3px rgba(255, 212, 76, 0.1);
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, rgba(5, 5, 5, 0.95), rgba(115, 86, 32, 0.1));
+}
+
+.secure-reveal-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--intent-pale-gold);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  padding: 0;
+  z-index: 2;
+  position: relative;
+}
+
+.secure-reveal-input::placeholder {
+  color: transparent;
+}
+
+.secure-reveal-placeholder {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  color: var(--intent-burnt-gold);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.placeholder-char {
+  display: inline-block;
+  transition: all 0.4s ease;
+  transition-delay: var(--delay);
+}
+
+.placeholder-char.vanish {
+  opacity: 0;
+  transform: translateY(-25px) scale(0.3) rotate(15deg);
+  filter: blur(3px);
+}
+
+.secure-reveal-send-button {
+  background: transparent;
+  border: 1px solid var(--intent-burnt-gold);
+  color: var(--intent-burnt-gold);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.secure-reveal-send-button:hover {
+  background: rgba(182, 138, 50, 0.1);
+  border-color: var(--intent-gold-main);
+  color: var(--intent-gold-main);
+  transform: scale(1.05);
+}
+
+.secure-reveal-send-button.active {
+  background: linear-gradient(135deg, var(--intent-gold-main), var(--intent-amber));
+  color: var(--intent-deep-black);
+  border-color: var(--intent-gold-main);
+  box-shadow: 0 4px 15px rgba(255, 212, 76, 0.3);
+}
+
+.secure-reveal-send-button.active:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(255, 212, 76, 0.4);
+}
+
+.secure-reveal-send-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.secure-reveal-send-button:disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .secure-reveal-container {
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+
+  .secure-reveal-wrapper {
+    padding: 10px 16px;
+    border-radius: 20px;
+  }
+
+  .secure-reveal-input,
+  .secure-reveal-placeholder {
+    font-size: 15px;
+  }
+
+  .secure-reveal-send-button {
+    width: 36px;
+    height: 36px;
+  }
+
+  .secure-reveal-placeholder {
+    left: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .secure-reveal-wrapper {
+    padding: 8px 14px;
+    border-radius: 18px;
+  }
+
+  .secure-reveal-input,
+  .secure-reveal-placeholder {
+    font-size: 14px;
+  }
+
+  .secure-reveal-send-button {
+    width: 32px;
+    height: 32px;
+  }
+
+  .secure-reveal-placeholder {
+    left: 14px;
+  }
+}
+
+/* Animation for input focus */
+@keyframes secureGlow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 212, 76, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 0 5px rgba(255, 212, 76, 0.1);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 212, 76, 0.1);
+  }
+}
+
+.secure-reveal-wrapper.focused {
+  animation: secureGlow 2s ease-in-out infinite;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .placeholder-char {
+    transition: none;
+  }
+  
+  .secure-reveal-wrapper.focused {
+    animation: none;
+  }
+}

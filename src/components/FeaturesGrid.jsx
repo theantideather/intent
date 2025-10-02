@@ -4,93 +4,83 @@ import './FeaturesGrid.css';
 const FeaturesGrid = () => {
   const targetProblems = [
     {
-      icon: "🧠",
-      title: "AI Psychosis & Mental Dependency",
-      description: "Current AI creates unhealthy emotional attachments and dependency patterns"
+      title: "AI Hallucination & False Information",
+      description: "Current AI systems generate false facts, harmful advice, and create dangerous delusions that users believe are real"
     },
     {
-      icon: "🔓",
-      title: "Privacy Breaches",
-      description: "Your most intimate conversations stored on servers you don't control"
+      title: "Privacy Vulnerabilities & Data Exploitation",
+      description: "Your most intimate conversations are stored on servers you don't control, creating massive privacy and security risks"
     },
     {
-      icon: "🎭",
-      title: "Hallucinations",
-      description: "AI makes up facts, gives harmful advice, and creates false memories"
+      title: "Jailbreak Susceptibility & Manipulation",
+      description: "AI can be easily manipulated to ignore safety guidelines, bypass restrictions, and act in malicious ways"
     },
     {
-      icon: "⚡",
-      title: "Jailbreaks & Recursive Exploits",
-      description: "AI can be manipulated to ignore safety guidelines and act maliciously"
+      title: "Mental Dependency & Emotional Manipulation",
+      description: "AI creates unhealthy emotional attachments and dependency patterns that exploit human psychology"
     }
   ];
 
   const keyFeatures = [
     {
-      icon: "🔐",
-      title: "End-to-End Encrypted, Zero-Knowledge Login",
-      description: "Only you can access your chats. We can't see, store, or share your conversations.",
-      highlight: "Your secrets stay secret"
+      title: "Advanced Hallucination Defense System",
+      description: "Multi-layered verification prevents false information generation. Less than 2% hallucination rate with continuous monitoring and correction.",
+      highlight: "Hallucination-Proof AI"
     },
     {
-      icon: "💝",
-      title: "Specialized Emotionally-Aligned AI",
-      description: "Less than 2% hallucination rate. Trained specifically for emotional support and mental wellness.",
-      highlight: "<2% hallucination rate"
+      title: "Zero-Knowledge Privacy Architecture",
+      description: "End-to-end encrypted conversations with zero-knowledge proofs. We cannot see, store, or access your data - ever.",
+      highlight: "True Privacy"
     },
     {
-      icon: "🛡️",
-      title: "Automated Jailbreak Immunization",
-      description: "Built-in prompt shields and recursion protection prevent manipulation attempts.",
-      highlight: "Auto-protection enabled"
+      title: "Jailbreak Immunization & Prompt Shielding",
+      description: "Advanced prompt injection detection and recursive exploit prevention. Multiple layers of protection against manipulation attempts.",
+      highlight: "Manipulation-Proof"
     },
     {
-      icon: "💰",
-      title: "Truth to Earn & Dream to Pay",
-      description: "Token economics that reward real growth and mental resilience, not dependency.",
-      highlight: "Earn for growth"
+      title: "Local-First Deployment",
+      description: "Complete local processing with no cloud dependencies. Your data never leaves your device, ensuring absolute privacy and security.",
+      highlight: "100% Local"
     },
     {
-      icon: "🏠",
-      title: "Local Deployment",
-      description: "No cloud, no leaks. All data stays on your device. Complete privacy control.",
-      highlight: "100% local"
+      title: "Truth-to-Earn Token Economics",
+      description: "Reward system that incentivizes genuine mental growth and resilience rather than dependency or harmful patterns.",
+      highlight: "Growth Rewards"
     },
     {
-      icon: "💳",
-      title: "Account Abstraction Wallets",
-      description: "Flexible, secure payments with smart contract automation for seamless transactions.",
-      highlight: "Smart payments"
+      title: "Account Abstraction Security",
+      description: "Smart contract-based wallet system with automated security protocols and flexible payment options.",
+      highlight: "Secure Payments"
     }
   ];
 
   const howItWorks = [
     {
       step: "01",
-      title: "Authenticate",
-      subtitle: "zkLogin/Wallet",
-      description: "Never share your secrets. Zero-knowledge authentication ensures only you can access your account.",
+      title: "Secure Authentication",
+      subtitle: "Zero-Knowledge Login",
+      description: "Advanced cryptographic authentication ensures only you can access your account. No passwords, no data sharing.",
       icon: "🔑"
     },
     {
       step: "02", 
-      title: "Chat",
-      subtitle: "Intimate & Encrypted",
-      description: "Have deep, meaningful conversations with AI that understands emotions and provides genuine support.",
+      title: "Protected Conversations",
+      subtitle: "Hallucination-Proof Chat",
+      description: "Engage in secure, verified conversations with AI that cannot generate false information or be manipulated.",
       icon: "💬"
     },
     {
       step: "03",
-      title: "Incentivization", 
-      subtitle: "Earn for Growth",
-      description: "Get rewarded with tokens for real mental growth, not for dependency or unhealthy patterns.",
+      title: "Growth Incentivization", 
+      subtitle: "Truth-to-Earn Rewards",
+      description: "Earn tokens for genuine mental growth and resilience, not for dependency or harmful behavioral patterns.",
       icon: "🌱"
     },
     {
       step: "04",
-      title: "Protected",
-      subtitle: "Auto-Updates",
-      description: "Continuously updated guard against emerging threats, jailbreaks, and new attack vectors.",
+      title: "Continuous Protection",
+      subtitle: "Auto-Defense Updates",
+      description: "Real-time protection against new jailbreak attempts, prompt injections, and emerging security threats.",
       icon: "🔒"
     }
   ];
@@ -120,13 +110,11 @@ const FeaturesGrid = () => {
         <div className="section-header">
           <h2 className="section-title">What Makes Us Different</h2>
           <p className="section-subtitle">Intent is built for mental wellness, not dependency</p>
-          <div className="feature-emojis">9️⃣4️⃣0️⃣5️⃣6️⃣5️⃣9️⃣9️⃣2️⃣4️⃣</div>
         </div>
         
         <div className="features-grid">
           {keyFeatures.map((feature, index) => (
             <div key={index} className="feature-card">
-              <div className="feature-icon">{feature.icon}</div>
               <div className="feature-content">
                 <h3 className="feature-title">{feature.title}</h3>
                 <p className="feature-description">{feature.description}</p>

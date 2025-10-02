@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import ChatVanishInput from './VanishInput';
+import SecureReveal from './SecureReveal';
 import './ChatMockups.css';
 
 const ChatMockups = () => {
-  const [encryptedMessages, setEncryptedMessages] = useState(new Set());
+  const [revealedMessages, setRevealedMessages] = useState(new Set());
 
-  const toggleEncryption = (messageId) => {
-    setEncryptedMessages(prev => {
+  const toggleReveal = (messageId) => {
+    setRevealedMessages(prev => {
       const newSet = new Set(prev);
       if (newSet.has(messageId)) {
         newSet.delete(messageId);
@@ -20,6 +20,7 @@ const ChatMockups = () => {
   const encryptText = (text) => {
     return text.replace(/[a-zA-Z]/g, '*');
   };
+
   const chatExamples = [
     {
       id: 1,
@@ -47,14 +48,14 @@ const ChatMockups = () => {
       title: "Fear of Mediocrity",
       userMessage: "What if I never succeed? What if I'm just… average?",
       intentResponse: "Even if that were true — being average doesn't make you unworthy.\n\nDo you want me to help break down your fear into smaller steps,\nor just breathe with you until the pressure eases?",
-      choices: ["Break it down", "Just breathe with me"]
+      choices: ["Break down my fear", "Just breathe with me"]
     },
     {
       id: 5,
       title: "Depression",
       userMessage: "I think I'm depressed. Everything feels flat.",
       intentResponse: "Thank you for trusting me with that.\nI won't rush you with tips or silver linings.\n\nWould it help to talk through what your hardest moment in the day looks like,\nor would you rather I just stay here quietly until you're ready?",
-      choices: ["Talk through it", "Stay quietly"]
+      choices: ["Talk through my hardest moment", "Just stay here quietly"]
     },
     {
       id: 6,
@@ -67,17 +68,21 @@ const ChatMockups = () => {
 
   return (
     <div className="chat-mockups-container">
-      
       <div className="mockups-header">
         <div className="security-badge">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
             <path d="M12 1L3 5V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V5L12 1Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
-          <span>End-to-End Encrypted</span>
+          <span>Zero-Knowledge Encrypted</span>
         </div>
-        <h2 className="mockups-title">How Intent Listens</h2>
-        <p className="mockups-subtitle">Real conversations with our emotionally-aligned AI</p>
-        <p className="security-note">Hover over messages to see encryption in action</p>
+        <h2 className="mockups-title">Secure Chat Examples</h2>
+        <p className="mockups-subtitle">Hover to reveal encrypted conversations. Your privacy is protected.</p>
+        <div className="security-note">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+            <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+          <span>All conversations are end-to-end encrypted with zero-knowledge architecture</span>
+        </div>
       </div>
 
       <div className="chat-examples-grid">
@@ -85,31 +90,29 @@ const ChatMockups = () => {
           <div key={example.id} className="chat-mockup">
             <div className="mockup-header">
               <div className="mockup-logo">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                  <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 1L3 5V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V5L12 1Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </div>
-              <span className="mockup-title">{example.title}</span>
+              <h3 className="mockup-title">{example.title}</h3>
             </div>
 
-            <div className="mockup-chat">
+            <div className="mockup-messages">
               {/* User Message */}
               <div className="mockup-message user">
                 <div 
-                  className="mockup-message-content encryptable-message"
-                  onMouseEnter={() => toggleEncryption(`user-${example.id}`)}
-                  onMouseLeave={() => toggleEncryption(`user-${example.id}`)}
+                  className="mockup-message-content secure-reveal-message"
+                  onMouseEnter={() => toggleReveal(`user-${example.id}`)}
+                  onMouseLeave={() => toggleReveal(`user-${example.id}`)}
                 >
                   <div className="mockup-message-text">
-                    {encryptedMessages.has(`user-${example.id}`) 
+                    {revealedMessages.has(`user-${example.id}`) 
                       ? example.userMessage
                       : encryptText(example.userMessage)
                     }
                   </div>
                   <div className="mockup-timestamp">2:14 PM</div>
-                  <div className="encryption-indicator">
+                  <div className="privacy-shield">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
                       <path d="M12 1L3 5V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V5L12 1Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
@@ -120,12 +123,12 @@ const ChatMockups = () => {
               {/* Intent Response */}
               <div className="mockup-message intent">
                 <div 
-                  className="mockup-message-content encryptable-message"
-                  onMouseEnter={() => toggleEncryption(`intent-${example.id}`)}
-                  onMouseLeave={() => toggleEncryption(`intent-${example.id}`)}
+                  className="mockup-message-content secure-reveal-message"
+                  onMouseEnter={() => toggleReveal(`intent-${example.id}`)}
+                  onMouseLeave={() => toggleReveal(`intent-${example.id}`)}
                 >
                   <div className="mockup-message-text">
-                    {encryptedMessages.has(`intent-${example.id}`) 
+                    {revealedMessages.has(`intent-${example.id}`) 
                       ? example.intentResponse.split('\n').map((line, index) => (
                           <React.Fragment key={index}>
                             {line}
@@ -136,7 +139,7 @@ const ChatMockups = () => {
                     }
                   </div>
                   
-                  {example.choices.length > 0 && encryptedMessages.has(`intent-${example.id}`) && (
+                  {example.choices.length > 0 && revealedMessages.has(`intent-${example.id}`) && (
                     <div className="mockup-choices">
                       {example.choices.map((choice, index) => (
                         <button key={index} className="mockup-choice-button">
@@ -147,7 +150,7 @@ const ChatMockups = () => {
                   )}
                   
                   <div className="mockup-timestamp">2:14 PM</div>
-                  <div className="encryption-indicator">
+                  <div className="privacy-shield">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
                       <path d="M12 1L3 5V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V5L12 1Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
@@ -159,35 +162,28 @@ const ChatMockups = () => {
         ))}
       </div>
 
-      <div className="mockups-footer">
-        <p className="mockups-description">
-          Intent doesn't rush to fix or solve. It listens, understands, and offers choices.
-          <br />
-          <strong>Presence over performance.</strong>
-        </p>
-        <div className="security-footer">
-          <div className="security-item">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-              <path d="M12 1L3 5V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V5L12 1Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-            <span>Zero-Knowledge Architecture</span>
-          </div>
-          <div className="security-item">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-              <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-            <span>Account Abstraction</span>
-          </div>
+      <div className="security-footer">
+        <div className="security-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <path d="M12 1L3 5V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V5L12 1Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+          <span>Zero-Knowledge Architecture</span>
+        </div>
+        <div className="security-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+          <span>Account Abstraction</span>
         </div>
       </div>
 
-      {/* Enhanced Input Demo */}
+      {/* SecureReveal Input Demo */}
       <div className="input-demo-section">
-        <h3 className="input-demo-title">Try the Enhanced Input</h3>
-        <p className="input-demo-subtitle">Experience Intent's vanishing placeholder effect</p>
-        <ChatVanishInput 
-          placeholder="Type your message here..."
-          onSend={(message) => console.log('Message sent:', message)}
+        <h3 className="input-demo-title">Try the SecureReveal Input</h3>
+        <p className="input-demo-subtitle">Experience Intent's secure input with vanishing placeholder effect</p>
+        <SecureReveal 
+          placeholder="Type your secure message here..."
+          onSend={(message) => console.log('Secure message sent:', message)}
         />
       </div>
     </div>

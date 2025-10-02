@@ -1,20 +1,19 @@
-/* Chat Mockups - Visual Examples of Intent Conversations */
+/* Chat Mockups - Secure Chat Examples with New Intent Color Palette */
 
 :root {
-  /* Exact colors from golden shield reference image */
-  --intent-bright-gold: #FFFFE0;      /* Innermost bright highlight */
-  --intent-luminous-gold: #FFD700;    /* Luminous golden yellow */
-  --intent-rich-gold: #DAA520;        /* Rich amber */
-  --intent-burnt-gold: #B8860B;       /* Burnt orange-gold */
-  --intent-deep-gold: #CD853F;        /* Deep amber */
-  --intent-muted-gold: #DAA520;       /* Muted golden-yellow for accents */
-  --intent-black: #000000;            /* Solid black background */
-  --intent-cream: #FFF8DC;            /* Cream text */
+  /* Intent "Delusion-As-A-Service" Color Palette */
+  --intent-deep-black: #050505;
+  --intent-gold-light: #FFE49C;
+  --intent-gold-main: #FFD44C;
+  --intent-amber: #F4B300;
+  --intent-burnt-gold: #B68A32;
+  --intent-chestnut: #735620;
+  --intent-pale-gold: #FDF6DC;
 }
 
 .chat-mockups-container {
   padding: 4rem 2rem;
-  background: var(--intent-black);
+  background: var(--intent-deep-black);
   min-height: 100vh;
   position: relative;
 }
@@ -24,15 +23,17 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  right: 0;
+  bottom: 0;
   background-image: 
-    radial-gradient(1px 1px at 20px 30px, rgba(255, 215, 0, 0.1), transparent),
-    radial-gradient(1px 1px at 40px 70px, rgba(218, 165, 32, 0.05), transparent),
-    radial-gradient(1px 1px at 90px 40px, rgba(255, 215, 0, 0.08), transparent);
-  background-repeat: repeat;
+    radial-gradient(1px 1px at 20px 30px, var(--intent-burnt-gold), transparent),
+    radial-gradient(1px 1px at 40px 70px, var(--intent-chestnut), transparent),
+    radial-gradient(1px 1px at 90px 40px, var(--intent-burnt-gold), transparent),
+    radial-gradient(1px 1px at 130px 80px, var(--intent-chestnut), transparent),
+    radial-gradient(1px 1px at 160px 30px, var(--intent-burnt-gold), transparent);
   background-size: 200px 150px;
   animation: securityPattern 20s linear infinite;
+  opacity: 0.1;
   pointer-events: none;
   z-index: 1;
 }
@@ -42,106 +43,64 @@
   100% { transform: translateX(200px) translateY(150px); }
 }
 
-/* Mobile parallax effect */
-@media (max-width: 768px) {
-  .chat-mockups-container::before {
-    animation: securityPattern 15s linear infinite;
-    background-size: 150px 100px;
-  }
-}
-
-@media (max-width: 480px) {
-  .chat-mockups-container::before {
-    animation: securityPattern 12s linear infinite;
-    background-size: 120px 80px;
-  }
-}
-
-/* Back Button */
-.mockups-back-button {
-  position: absolute;
-  top: 2rem;
-  left: 2rem;
-  background: rgba(0, 0, 0, 0.8);
-  border: 1px solid var(--intent-rich-gold);
-  color: var(--intent-rich-gold);
-  padding: 12px 20px;
-  border-radius: 25px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-size: 14px;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 4px 20px rgba(218, 165, 32, 0.2);
-  z-index: 10;
-}
-
-.mockups-back-button:hover {
-  background: rgba(218, 165, 32, 0.1);
-  transform: translateX(-2px);
-  box-shadow: 0 6px 25px rgba(218, 165, 32, 0.3);
-}
-
+/* Header */
 .mockups-header {
   text-align: center;
-  margin-bottom: 4rem;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-bottom: 3rem;
+  position: relative;
+  z-index: 2;
 }
 
-.mockups-title {
-  font-size: clamp(2.5rem, 5vw, 3.5rem);
-  font-weight: 300;
-  color: var(--intent-luminous-gold);
-  margin-bottom: 1rem;
-  text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
-}
-
-.mockups-subtitle {
-  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
-  color: var(--intent-rich-gold);
-  font-weight: 300;
-  opacity: 0.8;
-  line-height: 1.6;
-}
-
-/* Security Badge */
 .security-badge {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(0, 0, 0, 0.8);
-  border: 1px solid var(--intent-luminous-gold);
-  border-radius: 20px;
+  background: rgba(182, 138, 50, 0.1);
+  border: 1px solid var(--intent-burnt-gold);
+  color: var(--intent-gold-main);
   padding: 8px 16px;
-  color: var(--intent-luminous-gold);
+  border-radius: 20px;
   font-size: 14px;
   font-weight: 500;
-  margin-bottom: 1rem;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 2px 10px rgba(255, 215, 0, 0.2);
+  margin-bottom: 1.5rem;
   animation: securityGlow 3s ease-in-out infinite;
 }
 
 @keyframes securityGlow {
   0%, 100% {
-    box-shadow: 0 2px 10px rgba(255, 215, 0, 0.2);
+    box-shadow: 0 0 0 0 rgba(255, 212, 76, 0.3);
   }
   50% {
-    box-shadow: 0 4px 20px rgba(255, 215, 0, 0.4);
+    box-shadow: 0 0 0 10px rgba(255, 212, 76, 0);
   }
 }
 
+.mockups-title {
+  font-size: 3rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--intent-gold-main), var(--intent-amber));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 30px rgba(255, 212, 76, 0.3);
+}
+
+.mockups-subtitle {
+  font-size: 1.2rem;
+  color: var(--intent-pale-gold);
+  opacity: 0.8;
+  max-width: 600px;
+  margin: 0 auto 1.5rem;
+}
+
 .security-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--intent-burnt-gold);
   font-size: 14px;
-  color: var(--intent-rich-gold);
-  opacity: 0.7;
-  margin-top: 1rem;
-  font-style: italic;
+  opacity: 0.9;
 }
 
 /* Chat Examples Grid */
@@ -172,12 +131,12 @@
 
 /* Individual Chat Mockup */
 .chat-mockup {
-  background: rgba(0, 0, 0, 0.8);
-  border: 1px solid rgba(218, 165, 32, 0.3);
+  background: rgba(5, 5, 5, 0.8);
+  border: 1px solid rgba(182, 138, 50, 0.3);
   border-radius: 20px;
   padding: 1.5rem;
   backdrop-filter: blur(10px);
-  box-shadow: 0 8px 32px rgba(218, 165, 32, 0.1);
+  box-shadow: 0 8px 32px rgba(182, 138, 50, 0.1);
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
@@ -200,19 +159,18 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.05), transparent);
-  transition: left 0.6s ease;
-  pointer-events: none;
-}
-
-.chat-mockup:hover {
-  border-color: rgba(218, 165, 32, 0.5);
-  box-shadow: 0 12px 40px rgba(218, 165, 32, 0.2);
-  transform: translateY(-2px);
+  background: linear-gradient(90deg, transparent, rgba(255, 212, 76, 0.1), transparent);
+  transition: left 0.5s ease;
 }
 
 .chat-mockup:hover::before {
   left: 100%;
+}
+
+.chat-mockup:hover {
+  transform: translateY(-5px) scale(1.02);
+  border-color: var(--intent-gold-main);
+  box-shadow: 0 20px 40px rgba(255, 212, 76, 0.2);
 }
 
 /* Mockup Header */
@@ -222,30 +180,28 @@
   gap: 12px;
   margin-bottom: 1.5rem;
   padding-bottom: 1rem;
-  border-bottom: 1px solid rgba(218, 165, 32, 0.2);
+  border-bottom: 1px solid rgba(182, 138, 50, 0.2);
 }
 
 .mockup-logo {
   width: 32px;
   height: 32px;
-  background: linear-gradient(135deg, var(--intent-luminous-gold), var(--intent-rich-gold));
+  background: linear-gradient(135deg, var(--intent-gold-main), var(--intent-amber));
   border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--intent-black);
-  box-shadow: 0 2px 8px rgba(255, 215, 0, 0.3);
+  color: var(--intent-deep-black);
 }
 
 .mockup-title {
   font-size: 1.1rem;
-  font-weight: 500;
-  color: var(--intent-rich-gold);
-  text-shadow: 0 0 10px rgba(218, 165, 32, 0.3);
+  font-weight: 600;
+  color: var(--intent-gold-main);
 }
 
-/* Mockup Chat Messages */
-.mockup-chat {
+/* Messages */
+.mockup-messages {
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -253,42 +209,43 @@
 
 .mockup-message {
   display: flex;
-  margin-bottom: 1rem;
+  flex-direction: column;
 }
 
 .mockup-message.user {
-  justify-content: flex-end;
+  align-items: flex-end;
 }
 
 .mockup-message.intent {
-  justify-content: flex-start;
+  align-items: flex-start;
 }
 
 .mockup-message-content {
   max-width: 80%;
+  padding: 12px 16px;
+  border-radius: 18px;
   position: relative;
+  transition: all 0.3s ease;
 }
 
 /* User Messages */
 .mockup-message.user .mockup-message-content {
-  background: linear-gradient(135deg, var(--intent-deep-gold), var(--intent-burnt-gold));
-  color: var(--intent-cream);
+  background: linear-gradient(135deg, var(--intent-chestnut), var(--intent-burnt-gold));
+  color: var(--intent-pale-gold);
   border-radius: 18px 18px 4px 18px;
   padding: 12px 16px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-  border: 1px solid rgba(218, 165, 32, 0.3);
+  border: 1px solid rgba(182, 138, 50, 0.3);
 }
 
 /* Intent Messages */
 .mockup-message.intent .mockup-message-content {
-  background: linear-gradient(135deg, var(--intent-burnt-gold), var(--intent-black));
-  color: var(--intent-cream);
+  background: linear-gradient(135deg, var(--intent-burnt-gold), var(--intent-deep-black));
+  color: var(--intent-pale-gold);
   border-radius: 18px 18px 18px 4px;
   padding: 16px 20px;
-  border-left: 3px solid var(--intent-luminous-gold);
+  border-left: 3px solid var(--intent-gold-main);
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
-  border: 1px solid rgba(255, 215, 0, 0.2);
-  position: relative;
 }
 
 .mockup-message.intent .mockup-message-content::before {
@@ -298,108 +255,56 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(255, 215, 0, 0.05), rgba(218, 165, 32, 0.03));
-  border-radius: 18px 18px 18px 4px;
+  background: linear-gradient(135deg, rgba(255, 212, 76, 0.05), transparent);
+  border-radius: inherit;
   pointer-events: none;
 }
 
-/* Message Text */
+/* SecureReveal Message Effects */
+.secure-reveal-message {
+  opacity: 0.3;
+  filter: blur(1px);
+  transition: all 0.4s ease;
+}
+
+.secure-reveal-message:hover {
+  opacity: 1;
+  filter: blur(0);
+  transform: scale(1.02);
+  box-shadow: 0 0 20px rgba(255, 212, 76, 0.3);
+}
+
 .mockup-message-text {
   font-size: 15px;
   line-height: 1.5;
   word-wrap: break-word;
-  margin-bottom: 8px;
-  transition: all 0.3s ease;
-  position: relative;
-}
-
-/* Encryptable Message */
-.encryptable-message {
-  position: relative;
-  cursor: pointer;
   transition: all 0.3s ease;
 }
 
-.encryptable-message:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 20px rgba(255, 215, 0, 0.2);
-}
-
-.encryptable-message:hover .mockup-message-text {
-  color: var(--intent-luminous-gold);
-  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
-}
-
-/* Encryption Indicator */
-.encryption-indicator {
+/* Privacy Shield */
+.privacy-shield {
   position: absolute;
   top: 8px;
   right: 8px;
-  color: var(--intent-rich-gold);
   opacity: 0;
+  color: var(--intent-gold-main);
   transition: all 0.3s ease;
-  pointer-events: none;
+  animation: shieldPulse 2s ease-in-out infinite;
 }
 
-.encryptable-message:hover .encryption-indicator {
+.secure-reveal-message:hover .privacy-shield {
   opacity: 1;
-  animation: encryptionPulse 1.5s ease-in-out infinite;
+  animation: shieldPulse 1s ease-in-out infinite;
 }
 
-@keyframes encryptionPulse {
+@keyframes shieldPulse {
   0%, 100% {
-    opacity: 0.6;
     transform: scale(1);
+    filter: drop-shadow(0 0 5px rgba(255, 212, 76, 0.5));
   }
   50% {
-    opacity: 1;
     transform: scale(1.1);
-  }
-}
-
-/* Encryption Animation */
-.mockup-message-text {
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.encryptable-message:hover .mockup-message-text {
-  animation: textEncrypt 0.6s ease-in-out;
-}
-
-@keyframes textEncrypt {
-  0% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.3;
-    transform: scale(0.98);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-/* Glitch Effect for Encrypted Text */
-.encryptable-message:hover .mockup-message-text::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(90deg, transparent 0%, rgba(255, 215, 0, 0.1) 50%, transparent 100%);
-  animation: glitchScan 0.8s ease-in-out;
-  pointer-events: none;
-}
-
-@keyframes glitchScan {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(100%);
+    filter: drop-shadow(0 0 10px rgba(255, 212, 76, 0.8));
   }
 }
 
@@ -413,8 +318,8 @@
 
 .mockup-choice-button {
   background: transparent;
-  border: 1px solid var(--intent-rich-gold);
-  color: var(--intent-rich-gold);
+  border: 1px solid var(--intent-burnt-gold);
+  color: var(--intent-burnt-gold);
   padding: 4px 8px;
   border-radius: 12px;
   font-size: 11px;
@@ -434,7 +339,7 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(218, 165, 32, 0.2), transparent);
+  background: linear-gradient(90deg, transparent, rgba(182, 138, 50, 0.2), transparent);
   transition: left 0.5s ease;
 }
 
@@ -454,38 +359,17 @@
 }
 
 .mockup-choice-button:hover {
-  background: rgba(218, 165, 32, 0.1);
+  background: rgba(182, 138, 50, 0.1);
   transform: scale(1.05);
 }
 
 /* Timestamps */
 .mockup-timestamp {
   font-size: 11px;
-  color: var(--intent-muted-gold);
+  color: var(--intent-burnt-gold);
   text-align: right;
   margin-top: 4px;
   opacity: 0.8;
-}
-
-/* Footer */
-.mockups-footer {
-  text-align: center;
-  margin-top: 4rem;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.mockups-description {
-  font-size: 1.1rem;
-  color: var(--intent-rich-gold);
-  line-height: 1.6;
-  opacity: 0.9;
-}
-
-.mockups-description strong {
-  color: var(--intent-burnt-gold);
-  text-shadow: 0 0 10px rgba(184, 134, 11, 0.4);
 }
 
 /* Security Footer */
@@ -493,7 +377,7 @@
   display: flex;
   justify-content: center;
   gap: 2rem;
-  margin-top: 2rem;
+  margin-top: 3rem;
   flex-wrap: wrap;
 }
 
@@ -501,39 +385,54 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  color: var(--intent-rich-gold);
+  color: var(--intent-burnt-gold);
   font-size: 14px;
   font-weight: 500;
-  opacity: 0.8;
   transition: all 0.3s ease;
 }
 
 .security-item:hover {
-  opacity: 1;
-  color: var(--intent-luminous-gold);
-  text-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
+  color: var(--intent-gold-main);
+  transform: translateY(-2px);
+}
+
+/* Input Demo Section */
+.input-demo-section {
+  margin-top: 3rem;
+  text-align: center;
+  padding: 2rem;
+  background: rgba(5, 5, 5, 0.6);
+  border: 1px solid rgba(182, 138, 50, 0.3);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+}
+
+.input-demo-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--intent-gold-main);
+  margin-bottom: 0.5rem;
+}
+
+.input-demo-subtitle {
+  color: var(--intent-pale-gold);
+  opacity: 0.8;
+  margin-bottom: 2rem;
+  font-size: 1rem;
 }
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
   .chat-mockups-container {
-    padding: 1.5rem 0.5rem;
+    padding: 2rem 1rem;
   }
 
-  .mockups-back-button {
-    top: 0.8rem;
-    left: 0.8rem;
-    padding: 8px 12px;
-    font-size: 12px;
+  .mockups-title {
+    font-size: 2.2rem;
   }
 
-  .security-footer {
-    gap: 0.8rem;
-    margin-top: 1rem;
-  }
-
-  .security-item {
-    font-size: 12px;
+  .mockups-subtitle {
+    font-size: 1rem;
   }
 
   .chat-mockup {
@@ -561,14 +460,6 @@
     border-radius: 8px;
   }
 
-  .mockups-title {
-    font-size: 1.8rem;
-  }
-
-  .mockups-subtitle {
-    font-size: 0.9rem;
-  }
-
   .security-badge {
     padding: 6px 12px;
     font-size: 12px;
@@ -577,6 +468,19 @@
   .security-note {
     font-size: 12px;
   }
+
+  .input-demo-section {
+    margin-top: 2rem;
+    padding: 1.5rem;
+  }
+
+  .input-demo-title {
+    font-size: 1.3rem;
+  }
+
+  .input-demo-subtitle {
+    font-size: 0.9rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -584,22 +488,17 @@
     padding: 1rem 0.25rem;
   }
 
-  .mockups-header {
-    margin-bottom: 1.5rem;
+  .mockups-title {
+    font-size: 1.8rem;
   }
 
-  .mockup-header {
-    margin-bottom: 0.8rem;
-    padding-bottom: 0.8rem;
-  }
-
-  .mockup-logo {
-    width: 24px;
-    height: 24px;
-  }
-
-  .mockup-title {
+  .mockups-subtitle {
     font-size: 0.9rem;
+  }
+
+  .chat-mockup {
+    padding: 1rem;
+    border-radius: 16px;
   }
 
   .mockup-message-content {
@@ -623,14 +522,6 @@
     border-radius: 6px;
   }
 
-  .mockups-title {
-    font-size: 1.5rem;
-  }
-
-  .mockups-subtitle {
-    font-size: 0.8rem;
-  }
-
   .security-badge {
     padding: 4px 8px;
     font-size: 10px;
@@ -648,50 +539,7 @@
   .security-item {
     font-size: 10px;
   }
-}
 
-/* Input Demo Section */
-.input-demo-section {
-  margin-top: 3rem;
-  text-align: center;
-  padding: 2rem;
-  background: rgba(0, 0, 0, 0.6);
-  border: 1px solid rgba(218, 165, 32, 0.3);
-  border-radius: 20px;
-  backdrop-filter: blur(10px);
-}
-
-.input-demo-title {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--intent-luminous-gold);
-  margin-bottom: 0.5rem;
-}
-
-.input-demo-subtitle {
-  color: var(--intent-cream);
-  opacity: 0.8;
-  margin-bottom: 2rem;
-  font-size: 1rem;
-}
-
-/* Mobile responsive for input demo */
-@media (max-width: 768px) {
-  .input-demo-section {
-    margin-top: 2rem;
-    padding: 1.5rem;
-  }
-
-  .input-demo-title {
-    font-size: 1.3rem;
-  }
-
-  .input-demo-subtitle {
-    font-size: 0.9rem;
-  }
-}
-
-@media (max-width: 480px) {
   .input-demo-section {
     margin-top: 1.5rem;
     padding: 1rem;
@@ -735,79 +583,6 @@
   }
 }
 
-/* Add shimmer effect to mockups */
-.chat-mockup::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.1), transparent);
-  animation: shimmer 4s ease-in-out infinite;
-  pointer-events: none;
-}
-
-@keyframes shimmer {
-  0% {
-    left: -100%;
-  }
-  50% {
-    left: 100%;
-  }
-  100% {
-    left: 100%;
-  }
-}
-
-/* Mobile-specific optimizations */
-@media (max-width: 768px) {
-  .chat-mockup {
-    animation: mockupFadeIn 0.6s ease-out forwards, mockupFloat 8s ease-in-out infinite 0.8s;
-  }
-  
-  .chat-mockup::after {
-    animation: shimmer 6s ease-in-out infinite;
-  }
-  
-  .mockup-choice-button {
-    animation: buttonPulse 4s ease-in-out infinite;
-  }
-}
-
-/* Ultra-compact for very small phones */
-@media (max-width: 360px) {
-  .chat-mockups-container {
-    padding: 0.8rem 0.1rem;
-  }
-  
-  .chat-mockup {
-    padding: 0.8rem;
-    border-radius: 12px;
-  }
-  
-  .mockup-message-content {
-    padding: 6px 10px;
-  }
-  
-  .mockup-message-text {
-    font-size: 11px;
-  }
-  
-  .mockup-choice-button {
-    padding: 2px 4px;
-    font-size: 8px;
-  }
-  
-  .mockups-title {
-    font-size: 1.3rem;
-  }
-  
-  .mockups-subtitle {
-    font-size: 0.75rem;
-  }
-}
-
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
   .chat-mockup {
@@ -816,7 +591,15 @@
     transform: none;
   }
   
-  .chat-mockup::after {
+  .chat-mockups-container::before {
+    animation: none;
+  }
+  
+  .security-badge {
+    animation: none;
+  }
+  
+  .privacy-shield {
     animation: none;
   }
   

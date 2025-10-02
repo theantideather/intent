@@ -97,8 +97,8 @@ function App() {
       </div>
 
       {/* Seamless Scroll Sections */}
-      <FeaturesGrid />
       <ChatMockups />
+      <FeaturesGrid />
       
       {/* Modals */}
       {activeModal === 'why' && (

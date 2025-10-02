@@ -1,19 +1,18 @@
 /* Features Grid - Comprehensive Problem/Solution Showcase */
 
 :root {
-  /* Golden color palette from U-shape reference */
-  --intent-bright-gold: #FFFFE0;
-  --intent-luminous-gold: #FFD700;
-  --intent-rich-gold: #DAA520;
-  --intent-burnt-gold: #B8860B;
-  --intent-deep-gold: #CD853F;
-  --intent-muted-gold: #DAA520;
-  --intent-black: #000000;
-  --intent-cream: #FFF8DC;
+  /* Intent "Delusion-As-A-Service" Color Palette */
+  --intent-deep-black: #050505;
+  --intent-gold-light: #FFE49C;
+  --intent-gold-main: #FFD44C;
+  --intent-amber: #F4B300;
+  --intent-burnt-gold: #B68A32;
+  --intent-chestnut: #735620;
+  --intent-pale-gold: #FDF6DC;
 }
 
 .features-grid-container {
-  background: var(--intent-black);
+  background: var(--intent-deep-black);
   min-height: 100vh;
   padding: 4rem 2rem;
   position: relative;
@@ -28,11 +27,11 @@
   right: 0;
   bottom: 0;
   background-image: 
-    radial-gradient(1px 1px at 20px 30px, var(--intent-rich-gold), transparent),
-    radial-gradient(1px 1px at 40px 70px, var(--intent-burnt-gold), transparent),
-    radial-gradient(1px 1px at 90px 40px, var(--intent-rich-gold), transparent),
-    radial-gradient(1px 1px at 130px 80px, var(--intent-burnt-gold), transparent),
-    radial-gradient(1px 1px at 160px 30px, var(--intent-rich-gold), transparent);
+    radial-gradient(1px 1px at 20px 30px, var(--intent-burnt-gold), transparent),
+    radial-gradient(1px 1px at 40px 70px, var(--intent-chestnut), transparent),
+    radial-gradient(1px 1px at 90px 40px, var(--intent-burnt-gold), transparent),
+    radial-gradient(1px 1px at 130px 80px, var(--intent-chestnut), transparent),
+    radial-gradient(1px 1px at 160px 30px, var(--intent-burnt-gold), transparent);
   background-size: 200px 150px;
   animation: securityPattern 20s linear infinite;
   opacity: 0.1;
@@ -82,37 +81,22 @@
 .section-title {
   font-size: 3rem;
   font-weight: 700;
-  background: linear-gradient(135deg, var(--intent-luminous-gold), var(--intent-rich-gold));
+  background: linear-gradient(135deg, var(--intent-gold-main), var(--intent-amber));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   margin-bottom: 1rem;
-  text-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+  text-shadow: 0 0 30px rgba(255, 212, 76, 0.3);
 }
 
 .section-subtitle {
   font-size: 1.2rem;
-  color: var(--intent-cream);
+  color: var(--intent-pale-gold);
   opacity: 0.8;
   max-width: 600px;
   margin: 0 auto;
 }
 
-.feature-emojis {
-  font-size: 2rem;
-  margin-top: 1rem;
-  animation: emojiFloat 3s ease-in-out infinite;
-  filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.3));
-}
-
-@keyframes emojiFloat {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-5px);
-  }
-}
 
 /* Target Problems Section */
 .target-problems-section {
