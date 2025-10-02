@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './VanishInput.css';
 
-const VanishInput = ({ placeholder = "Type your message...", onSend }) => {
+const ChatVanishInput = ({ placeholder = "Type your message...", onSend }) => {
   const [inputValue, setInputValue] = useState('');
   const [isFocused, setIsFocused] = useState(false);
 
@@ -66,4 +66,4 @@ const VanishInput = ({ placeholder = "Type your message...", onSend }) => {
   );
 };
 
-export default VanishInput;
+export default ChatVanishInput;

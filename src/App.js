@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import LightRays from './LightRays';
-import FeaturesPage from './FeaturesPage';
 import ChatMockups from './components/ChatMockups';
 import FeaturesGrid from './components/FeaturesGrid';
 import './App.css';
@@ -8,9 +7,6 @@ import './App.css';
 function App() {
   const [activeModal, setActiveModal] = useState(null);
   const [showMenu, setShowMenu] = useState(false);
-  const [showFeaturesPage, setShowFeaturesPage] = useState(false);
-  const [showChatMockups, setShowChatMockups] = useState(false);
-  const [showFeaturesGrid, setShowFeaturesGrid] = useState(false);
 
   const openModal = (modalType) => {
     setActiveModal(modalType);
@@ -25,33 +21,6 @@ function App() {
     setShowMenu(!showMenu);
   };
 
-  const openFeaturesPage = () => {
-    console.log('Opening features page');
-    setShowFeaturesPage(true);
-    setShowMenu(false);
-  };
-
-  const closeFeaturesPage = () => {
-    setShowFeaturesPage(false);
-  };
-
-  const openChatMockups = () => {
-    setShowChatMockups(true);
-    setShowMenu(false);
-  };
-
-  const closeChatMockups = () => {
-    setShowChatMockups(false);
-  };
-
-  const openFeaturesGrid = () => {
-    setShowFeaturesGrid(true);
-    setShowMenu(false);
-  };
-
-  const closeFeaturesGrid = () => {
-    setShowFeaturesGrid(false);
-  };
 
   return (
     <div className="App">
@@ -62,15 +31,6 @@ function App() {
         </button>
         <button className="floating-button" onClick={() => openModal('note')}>
           Note from the Creator
-        </button>
-        <button className="floating-button" onClick={openFeaturesPage}>
-          Features
-        </button>
-        <button className="floating-button" onClick={openChatMockups}>
-          Chat Examples
-        </button>
-        <button className="floating-button" onClick={openFeaturesGrid}>
-          What Makes Us Different
         </button>
       </div>
 
@@ -89,15 +49,6 @@ function App() {
           </button>
           <button className="mobile-menu-item" onClick={() => openModal('note')}>
             Note from the Creator
-          </button>
-          <button className="mobile-menu-item" onClick={openFeaturesPage}>
-            Features
-          </button>
-          <button className="mobile-menu-item" onClick={openChatMockups}>
-            Chat Examples
-          </button>
-          <button className="mobile-menu-item" onClick={openFeaturesGrid}>
-            What Makes Us Different
           </button>
         </div>
       )}
@@ -145,27 +96,9 @@ function App() {
         </div>
       </div>
 
-      {/* Features Page */}
-      {showFeaturesPage && (
-        <div>
-          {console.log('Rendering FeaturesPage, showFeaturesPage:', showFeaturesPage)}
-          <FeaturesPage onBack={closeFeaturesPage} />
-        </div>
-      )}
-
-      {/* Chat Mockups */}
-      {showChatMockups && (
-        <div>
-          <ChatMockups onBack={closeChatMockups} />
-        </div>
-      )}
-
-      {/* Features Grid */}
-      {showFeaturesGrid && (
-        <div>
-          <FeaturesGrid onBack={closeFeaturesGrid} />
-        </div>
-      )}
+      {/* Seamless Scroll Sections */}
+      <FeaturesGrid />
+      <ChatMockups />
       
       {/* Modals */}
       {activeModal === 'why' && (

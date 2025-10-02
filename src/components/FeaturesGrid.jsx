@@ -1,7 +1,7 @@
 import React from 'react';
 import './FeaturesGrid.css';
 
-const FeaturesGrid = ({ onBack }) => {
+const FeaturesGrid = () => {
   const targetProblems = [
     {
       icon: "🧠",
@@ -97,10 +97,6 @@ const FeaturesGrid = ({ onBack }) => {
 
   return (
     <div className="features-grid-container">
-      {/* Back Button */}
-      <button className="features-back-button" onClick={onBack}>
-        ← Back
-      </button>
       {/* Target Problems Section */}
       <section className="target-problems-section">
         <div className="section-header">
@@ -124,6 +120,7 @@ const FeaturesGrid = ({ onBack }) => {
         <div className="section-header">
           <h2 className="section-title">What Makes Us Different</h2>
           <p className="section-subtitle">Intent is built for mental wellness, not dependency</p>
+          <div className="feature-emojis">9️⃣4️⃣0️⃣5️⃣6️⃣5️⃣9️⃣9️⃣2️⃣4️⃣</div>
         </div>
         
         <div className="features-grid">

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import VanishInput from './VanishInput';
+import ChatVanishInput from './VanishInput';
 import './ChatMockups.css';
 
-const ChatMockups = ({ onBack }) => {
+const ChatMockups = () => {
   const [encryptedMessages, setEncryptedMessages] = useState(new Set());
 
   const toggleEncryption = (messageId) => {
@@ -67,14 +67,6 @@ const ChatMockups = ({ onBack }) => {
 
   return (
     <div className="chat-mockups-container">
-      {onBack && (
-        <button className="mockups-back-button" onClick={onBack}>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-            <path d="M19 12H5M12 19L5 12L12 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-          Back to Intent
-        </button>
-      )}
       
       <div className="mockups-header">
         <div className="security-badge">
@@ -112,8 +104,8 @@ const ChatMockups = ({ onBack }) => {
                 >
                   <div className="mockup-message-text">
                     {encryptedMessages.has(`user-${example.id}`) 
-                      ? encryptText(example.userMessage)
-                      : example.userMessage
+                      ? example.userMessage
+                      : encryptText(example.userMessage)
                     }
                   </div>
                   <div className="mockup-timestamp">2:14 PM</div>
@@ -134,17 +126,17 @@ const ChatMockups = ({ onBack }) => {
                 >
                   <div className="mockup-message-text">
                     {encryptedMessages.has(`intent-${example.id}`) 
-                      ? encryptText(example.intentResponse)
-                      : example.intentResponse.split('\n').map((line, index) => (
+                      ? example.intentResponse.split('\n').map((line, index) => (
                           <React.Fragment key={index}>
                             {line}
                             {index < example.intentResponse.split('\n').length - 1 && <br />}
                           </React.Fragment>
                         ))
+                      : encryptText(example.intentResponse)
                     }
                   </div>
                   
-                  {example.choices.length > 0 && !encryptedMessages.has(`intent-${example.id}`) && (
+                  {example.choices.length > 0 && encryptedMessages.has(`intent-${example.id}`) && (
                     <div className="mockup-choices">
                       {example.choices.map((choice, index) => (
                         <button key={index} className="mockup-choice-button">
@@ -193,7 +185,7 @@ const ChatMockups = ({ onBack }) => {
       <div className="input-demo-section">
         <h3 className="input-demo-title">Try the Enhanced Input</h3>
         <p className="input-demo-subtitle">Experience Intent's vanishing placeholder effect</p>
-        <VanishInput 
+        <ChatVanishInput 
           placeholder="Type your message here..."
           onSend={(message) => console.log('Message sent:', message)}
         />
