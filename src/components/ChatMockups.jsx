@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import VanishInput from './VanishInput';
 import './ChatMockups.css';
 
 const ChatMockups = ({ onBack }) => {
@@ -186,6 +187,16 @@ const ChatMockups = ({ onBack }) => {
             <span>Account Abstraction</span>
           </div>
         </div>
+      </div>
+
+      {/* Enhanced Input Demo */}
+      <div className="input-demo-section">
+        <h3 className="input-demo-title">Try the Enhanced Input</h3>
+        <p className="input-demo-subtitle">Experience Intent's vanishing placeholder effect</p>
+        <VanishInput 
+          placeholder="Type your message here..."
+          onSend={(message) => console.log('Message sent:', message)}
+        />
       </div>
     </div>
   );

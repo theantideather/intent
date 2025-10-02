@@ -1,0 +1,206 @@
+/* Vanish Input - Enhanced Chat Input with Golden Theme */
+
+:root {
+  --intent-bright-gold: #FFFFE0;
+  --intent-luminous-gold: #FFD700;
+  --intent-rich-gold: #DAA520;
+  --intent-burnt-gold: #B8860B;
+  --intent-deep-gold: #CD853F;
+  --intent-muted-gold: #DAA520;
+  --intent-black: #000000;
+  --intent-cream: #FFF8DC;
+}
+
+.vanish-input-container {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.vanish-input-form {
+  position: relative;
+}
+
+.vanish-input-wrapper {
+  position: relative;
+  background: rgba(0, 0, 0, 0.8);
+  border: 2px solid rgba(218, 165, 32, 0.3);
+  border-radius: 25px;
+  padding: 12px 20px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.vanish-input-wrapper.focused {
+  border-color: var(--intent-luminous-gold);
+  box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.vanish-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--intent-cream);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  padding: 0;
+  z-index: 2;
+  position: relative;
+}
+
+.vanish-input::placeholder {
+  color: transparent;
+}
+
+.vanish-placeholder {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  color: var(--intent-muted-gold);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.placeholder-char {
+  display: inline-block;
+  transition: all 0.3s ease;
+  transition-delay: var(--delay);
+}
+
+.placeholder-char.vanish {
+  opacity: 0;
+  transform: translateY(-10px) scale(0.8);
+}
+
+.vanish-send-button {
+  background: transparent;
+  border: 1px solid var(--intent-rich-gold);
+  color: var(--intent-rich-gold);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.vanish-send-button:hover {
+  background: rgba(218, 165, 32, 0.1);
+  border-color: var(--intent-luminous-gold);
+  color: var(--intent-luminous-gold);
+  transform: scale(1.05);
+}
+
+.vanish-send-button.active {
+  background: linear-gradient(135deg, var(--intent-luminous-gold), var(--intent-rich-gold));
+  color: var(--intent-black);
+  border-color: var(--intent-luminous-gold);
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+}
+
+.vanish-send-button.active:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+}
+
+.vanish-send-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.vanish-send-button:disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .vanish-input-container {
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+
+  .vanish-input-wrapper {
+    padding: 10px 16px;
+    border-radius: 20px;
+  }
+
+  .vanish-input,
+  .vanish-placeholder {
+    font-size: 15px;
+  }
+
+  .vanish-send-button {
+    width: 36px;
+    height: 36px;
+  }
+
+  .vanish-placeholder {
+    left: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .vanish-input-wrapper {
+    padding: 8px 14px;
+    border-radius: 18px;
+  }
+
+  .vanish-input,
+  .vanish-placeholder {
+    font-size: 14px;
+  }
+
+  .vanish-send-button {
+    width: 32px;
+    height: 32px;
+  }
+
+  .vanish-placeholder {
+    left: 14px;
+  }
+}
+
+/* Animation for input focus */
+@keyframes inputGlow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 0 5px rgba(255, 215, 0, 0.1);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.1);
+  }
+}
+
+.vanish-input-wrapper.focused {
+  animation: inputGlow 2s ease-in-out infinite;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .placeholder-char {
+    transition: none;
+  }
+  
+  .vanish-input-wrapper.focused {
+    animation: none;
+  }
+}

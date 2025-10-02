@@ -17,6 +17,7 @@
   background: var(--intent-black);
   min-height: 100vh;
   position: relative;
+  overflow-y: auto;
 }
 
 .chat-mockups-container::before {
@@ -647,6 +648,62 @@
 
   .security-item {
     font-size: 10px;
+  }
+}
+
+/* Input Demo Section */
+.input-demo-section {
+  margin-top: 3rem;
+  text-align: center;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(218, 165, 32, 0.3);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+}
+
+.input-demo-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--intent-luminous-gold);
+  margin-bottom: 0.5rem;
+}
+
+.input-demo-subtitle {
+  color: var(--intent-cream);
+  opacity: 0.8;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
+
+/* Mobile responsive for input demo */
+@media (max-width: 768px) {
+  .input-demo-section {
+    margin-top: 2rem;
+    padding: 1.5rem;
+  }
+
+  .input-demo-title {
+    font-size: 1.3rem;
+  }
+
+  .input-demo-subtitle {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .input-demo-section {
+    margin-top: 1.5rem;
+    padding: 1rem;
+  }
+
+  .input-demo-title {
+    font-size: 1.2rem;
+  }
+
+  .input-demo-subtitle {
+    font-size: 0.8rem;
   }
 }
 
