@@ -1,6 +1,5 @@
 import React from 'react';
-import DisplayCards from './ui/display-cards';
-import { Shield, Lock, Brain, Zap, Home, Wallet } from 'lucide-react';
+import { Features } from './blocks/features-8';
 import './FeaturesGrid.css';
 
 const FeaturesGrid = () => {
@@ -115,24 +114,7 @@ const FeaturesGrid = () => {
         </div>
         
         <div className="features-display-cards">
-          <DisplayCards 
-            cards={keyFeatures.map((feature, index) => ({
-              icon: index === 0 ? <Brain className="size-4 text-[#FFD44C]" /> :
-                    index === 1 ? <Lock className="size-4 text-[#FFD44C]" /> :
-                    index === 2 ? <Shield className="size-4 text-[#FFD44C]" /> :
-                    index === 3 ? <Home className="size-4 text-[#FFD44C]" /> :
-                    index === 4 ? <Zap className="size-4 text-[#FFD44C]" /> :
-                    <Wallet className="size-4 text-[#FFD44C]" />,
-              title: feature.title,
-              description: feature.description,
-              date: feature.highlight,
-              iconClassName: "text-[#FFD44C]",
-              titleClassName: "text-[#FFD44C]",
-              className: index === 0 ? "[grid-area:stack] hover:-translate-y-10 before:absolute before:w-[100%] before:outline-1 before:rounded-xl before:outline-border before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-background/50 grayscale-[100%] hover:before:opacity-0 before:transition-opacity before:duration:700 hover:grayscale-0 before:left-0 before:top-0" :
-                        index === 1 ? "[grid-area:stack] translate-x-16 translate-y-10 hover:-translate-y-1 before:absolute before:w-[100%] before:outline-1 before:rounded-xl before:outline-border before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-background/50 grayscale-[100%] hover:before:opacity-0 before:transition-opacity before:duration:700 hover:grayscale-0 before:left-0 before:top-0" :
-                        "[grid-area:stack] translate-x-32 translate-y-20 hover:translate-y-10"
-            }))}
-          />
+          <Features />
         </div>
       </section>
 
