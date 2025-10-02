@@ -22,38 +22,6 @@ const FeaturesGrid = () => {
     }
   ];
 
-  const keyFeatures = [
-    {
-      title: "Advanced Hallucination Defense System",
-      description: "Multi-layered verification prevents false information generation. Less than 2% hallucination rate with continuous monitoring and correction.",
-      highlight: "Hallucination-Proof AI"
-    },
-    {
-      title: "Zero-Knowledge Privacy Architecture",
-      description: "End-to-end encrypted conversations with zero-knowledge proofs. We cannot see, store, or access your data - ever.",
-      highlight: "True Privacy"
-    },
-    {
-      title: "Jailbreak Immunization & Prompt Shielding",
-      description: "Advanced prompt injection detection and recursive exploit prevention. Multiple layers of protection against manipulation attempts.",
-      highlight: "Manipulation-Proof"
-    },
-    {
-      title: "Local-First Deployment",
-      description: "Complete local processing with no cloud dependencies. Your data never leaves your device, ensuring absolute privacy and security.",
-      highlight: "100% Local"
-    },
-    {
-      title: "Truth-to-Earn Token Economics",
-      description: "Reward system that incentivizes genuine mental growth and resilience rather than dependency or harmful patterns.",
-      highlight: "Growth Rewards"
-    },
-    {
-      title: "Account Abstraction Security",
-      description: "Smart contract-based wallet system with automated security protocols and flexible payment options.",
-      highlight: "Secure Payments"
-    }
-  ];
 
   const howItWorks = [
     {
