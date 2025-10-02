@@ -7,20 +7,15 @@ import './App.css';
 
 function App() {
   const [activeModal, setActiveModal] = useState(null);
-  const [showMenu, setShowMenu] = useState(false);
 
   const openModal = (modalType) => {
     setActiveModal(modalType);
-    setShowMenu(false);
   };
 
   const closeModal = () => {
     setActiveModal(null);
   };
 
-  const toggleMenu = () => {
-    setShowMenu(!showMenu);
-  };
 
 
   return (
